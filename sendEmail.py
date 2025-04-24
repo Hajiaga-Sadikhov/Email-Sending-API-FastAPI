@@ -8,6 +8,7 @@ SMTP_USER = os.getenv("SMTP_USER")
 SMTP_PASS = os.getenv("SMTP_PASS")
 context = ssl.create_default_context()
 
+
 async def send_email(receiver_email: str, subject: str, body: str):
     server = None
     try:

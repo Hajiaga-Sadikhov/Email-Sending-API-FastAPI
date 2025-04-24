@@ -2,7 +2,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi import FastAPI, HTTPException , Request
 import re
-
+import sendEmail
 app = FastAPI()
 
 @app.post("/send-email")
@@ -21,9 +21,22 @@ async def send_email_endpoint(request: Request):
         raise HTTPException(status_code=400, detail="Invalid email address format")
 
     try:
+        await sendEmail.send_email(receiver_email=receiver, subject=subject, body=message)
         return {"status": "success", "detail": "Email sent"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 templates = Jinja2Templates(directory="static")
