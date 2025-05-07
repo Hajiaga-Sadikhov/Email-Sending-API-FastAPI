@@ -6,7 +6,7 @@ email. Your implementation should parse incoming JSON, validate it, and deliver 
 via Gmail’s SMTP server without blocking the main event loop.
 
 ### API Endpoint
-The API will be available at http://127.0.0.1:8000.
+The API will be available at http://127.0.0.1:8000/send-email.
 
 
 ## 👨‍💻 Running Email Sending API
